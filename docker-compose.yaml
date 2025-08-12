@@ -1,6 +1,6 @@
 services:
   app-prod:
-    image: bolt-ai:production
+    image: ghcr.io/yousuf1sg/bolt.feldev:production
     build:
       context: .
       dockerfile: Dockerfile
