@@ -1,5 +1,10 @@
 ARG BASE=node:20.18.0
 FROM ${BASE} AS base
+# Set execute permissions for scripts
+RUN chmod +x ./bindings.sh
+
+# Verify permissions (optional debug step)
+RUN ls -la ./bindings.sh && head -n 5 ./bindings.sh
 
 WORKDIR /app
 
