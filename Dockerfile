@@ -1,7 +1,7 @@
 ARG BASE=node:20.18.0
 FROM ${BASE} AS base
 # Set execute permissions for scripts
-mkdir ./bindings.sh
+RUN touch ./bindings.sh
 RUN chmod +x ./bindings.sh
 
 # Verify permissions (optional debug step)
