@@ -65,12 +65,12 @@ services:
       - coolify.deploy=true
     extra_hosts:
       - 'host.docker.internal:host-gateway'
-    volumes:
-      - type: bind
-        source: .
-        target: /app
-        consistency: cached
-      - /app/node_modules
+#    volumes:
+#      - type: bind
+#        source: .
+#        target: /app
+#        consistency: cached
+#      - /app/node_modules
     ports:
       - '5173:5173'
     command: pnpm run dev --host 0.0.0.0
