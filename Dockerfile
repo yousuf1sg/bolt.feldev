@@ -1,7 +1,11 @@
 ARG BASE=node:20.18.0
 FROM ${BASE} AS base
+
+# Create the script file with content
+RUN echo "#!/bin/bash" > ./bindings.sh && \
+    echo "echo 'Your script content here'" >> ./bindings.sh
+    
 # Set execute permissions for scripts
-RUN touch ./bindings.sh
 RUN chmod +x ./bindings.sh
 
 # Verify permissions (optional debug step)
