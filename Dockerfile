@@ -23,8 +23,8 @@ RUN pwd && ls -la
 # Copy package.json first (for better layer caching)
 FROM installer AS dependencies
 WORKDIR /app
-COPY package.json ./
-COPY pnpm-lock.yaml ./
+COPY package.json ./app
+COPY pnpm-lock.yaml ./app
 
 # Debug: show files were copied
 RUN ls -la
