@@ -1,7 +1,9 @@
 ARG BASE=node:20.18.0
 FROM ${BASE} AS base
 # Install pnpm using corepack (recommended approach)
-RUN corepack enable && corepack prepare pnpm@latest --activate
+#RUN corepack enable && corepack prepare pnpm@latest --activate
+# Method 1: Install pnpm via npm (specific version)
+RUN npm install -g pnpm@8
 
 # Create the script file with content
 RUN echo "#!/bin/bash" > ./bindings.sh && \
