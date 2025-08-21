@@ -1,5 +1,6 @@
 ARG BASE=node:20.18.0
 FROM ${BASE} AS base
+WORKDIR /app  # ← THIS IS CRITICAL - ADD THIS LINE
 # Install pnpm using corepack (recommended approach)
 #RUN corepack enable && corepack prepare pnpm@latest --activate
 # Method 1: Install pnpm via npm (specific version)
