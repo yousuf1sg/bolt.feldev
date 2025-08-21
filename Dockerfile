@@ -3,7 +3,10 @@ FROM ${BASE} AS base
 # Install pnpm using corepack (recommended approach)
 #RUN corepack enable && corepack prepare pnpm@latest --activate
 # Method 1: Install pnpm via npm (specific version)
-RUN npm install -g pnpm@8
+#RUN npm install -g pnpm@8
+
+# Method 2: Or use curl to install
+RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
 
 # Create the script file with content
 RUN echo "#!/bin/bash" > ./bindings.sh && \
