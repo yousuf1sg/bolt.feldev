@@ -11,10 +11,11 @@ RUN chmod +x ./bindings.sh
 # Verify permissions (optional debug step)
 RUN ls -la ./bindings.sh && head -n 5 ./bindings.sh
 
-WORKDIR /app
+# Copy package.json first (for better layer caching)
+COPY package.json ./
+COPY pnpm-lock.yaml ./
 
-# Install dependencies (this step is cached as long as the dependencies don't change)
-COPY package.json pnpm-lock.yaml ./
+WORKDIR /app
 
 #RUN npm install -g corepack@latest
 
