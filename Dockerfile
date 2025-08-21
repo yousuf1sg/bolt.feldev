@@ -1,5 +1,7 @@
 ARG BASE=node:20.18.0
 FROM ${BASE} AS base
+# Install pnpm using corepack (recommended approach)
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
 # Create the script file with content
 RUN echo "#!/bin/bash" > ./bindings.sh && \
